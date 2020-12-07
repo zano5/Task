@@ -1,0 +1,38 @@
+
+
+<form [formGroup]="form">
+
+  <mat-card class="example-card">
+
+
+
+    <mat-card-header>
+
+      <mat-card-title >Login</mat-card-title>
+
+    </mat-card-header>
+
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Enter Email</mat-label>
+      <input matInput #input  formControlName="email" [ngClass]="{'error': !valid('email')}">
+
+    </mat-form-field>
+    <br>
+
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Enter Password</mat-label>
+      <input matInput #input  type="password" formControlName="password" [ngClass]="{'error': !valid('password')}" >
+
+    </mat-form-field>
+
+    <br>
+
+    <button mat-raised-button color="accent" (click)="submit()">Login</button>
+    <p class="failed mat-body-1">{{error}}</p>
+
+  </mat-card>
+
+
+</form>

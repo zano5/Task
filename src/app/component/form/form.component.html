@@ -1,0 +1,155 @@
+
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="goBack()">
+    <mat-icon>keyboard_backspace</mat-icon>
+  </button>
+  <span>Form</span>
+  <span class="example-spacer"></span>
+
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)= "signOut()">
+    <mat-icon>login</mat-icon>
+  </button>
+</mat-toolbar>
+
+
+<form [formGroup]="form">
+  <mat-card class="example-card">
+
+    <mat-card-header>
+
+      <mat-card-title >Please Complete The Form</mat-card-title>
+
+    </mat-card-header>
+
+  <mat-grid-list cols="2" rowHeight="70px">
+    <mat-grid-tile >
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Enter Name</mat-label>
+        <input matInput #input  formControlName="name">
+
+      </mat-form-field>
+
+
+    </mat-grid-tile>
+
+
+
+    <mat-grid-tile>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Enter Surname</mat-label>
+        <input matInput #input formControlName="surname" >
+
+      </mat-form-field>
+
+
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+    <mat-form-field appearance="legacy">
+      <mat-label>Enter Email</mat-label>
+      <input matInput #input  formControlName="email">
+
+    </mat-form-field>
+
+
+     </mat-grid-tile>
+
+
+     <mat-grid-tile [colspan]="2" [rowspan]="1">
+      <mat-form-field appearance="legacy">
+        <mat-label>Enter ID Number</mat-label>
+        <input matInput #input  type="number" formControlName="idNo" max="13">
+
+      </mat-form-field>
+
+
+       </mat-grid-tile>
+
+     <mat-grid-tile>
+
+      <mat-form-field  appearance="legacy">
+        <mat-label>Enter Address Line 1</mat-label>
+        <input matInput #input  formControlName="address1" >
+
+      </mat-form-field>
+
+
+    </mat-grid-tile>
+
+
+
+    <mat-grid-tile>
+
+      <mat-form-field  appearance="legacy">
+        <mat-label>Enter Address Line 2</mat-label>
+        <input matInput #input   formControlName="address2">
+
+      </mat-form-field>
+
+
+    </mat-grid-tile>
+    <mat-grid-tile>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Enter City</mat-label>
+      <input matInput #input   formControlName="city" >
+
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+  <mat-form-field appearance="legacy">
+    <mat-label>Select Province</mat-label>
+    <mat-select  formControlName="province">
+      <mat-option value="Eastern Cape">Eastern Cape</mat-option>
+      <mat-option value="Free State">Free State</mat-option>
+      <mat-option value="Gauteng">Gauteng</mat-option>
+      <mat-option value="KwaZulu-Natal">KwaZulu-Natal</mat-option>
+      <mat-option value="Limpopo">Limpopo</mat-option>
+      <mat-option value="Mpumalanga">Mpumalanga</mat-option>
+      <mat-option value="Northern Cape">Northern Cape</mat-option>
+      <mat-option value="North West">North West</mat-option>
+      <mat-option value="Western Cape">Western Cape</mat-option>
+    </mat-select>
+
+  </mat-form-field>
+
+</mat-grid-tile>
+
+
+<mat-grid-tile [colspan]="2" [rowspan]="1">
+
+
+
+
+  <mat-form-field  appearance="fill">
+    <mat-label>Location</mat-label>
+    <input matInput #input   formControlName="location" (input)="search($event)" (change)="addressCheck($event)"  [value]="selectedAddress" >
+
+  </mat-form-field>
+</mat-grid-tile>
+
+<mat-grid-tile [colspan]="2" [rowspan]="1">
+
+  <mat-list role="list">
+
+    <mat-list-item role="listitem" *ngFor="let address of addresses ; let i=index" (click)="onSelect(address, i)" >  {{ address}}</mat-list-item>
+
+  </mat-list>
+
+
+  </mat-grid-tile>
+
+<mat-grid-tile [colspan]="2" [rowspan]="1">
+
+  <button mat-raised-button color="accent" (click)="submit()">Submit</button>
+</mat-grid-tile>
+  </mat-grid-list>
+
+
+
+
+</mat-card>
+</form>

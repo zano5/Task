@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "assessment-1674e": {
+      "hosting": {
+        "task": [
+          "assessment-1674e"
+        ]
+      }
+    }
+  }
+}
